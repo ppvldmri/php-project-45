@@ -1,0 +1,11 @@
+{
+    "name": "hexlet/code",
+    "description": "Hexlet first project- Brain games",
+    "type": "project",
+    "authors": [
+        {
+            "name": "ppvldmr"
+        }
+    ],
+    "require": {}
+}
