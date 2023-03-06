@@ -1,11 +1,15 @@
 {
     "name": "hexlet/code",
     "description": "Hexlet first project- Brain games",
+    "license": "no-license",
     "type": "project",
     "authors": [
         {
             "name": "ppvldmr"
         }
     ],
-    "require": {}
+    "require": {},
+    "bin": [
+  "bin/brain-games"
+		]
 }
