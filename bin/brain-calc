@@ -12,5 +12,7 @@ if (file_exists($autoloadPath1)) {
 
 
 
-BrainCalc\Calc\playGame();
+//BrainCalc\Calc\calcWelcome();
+//BrainCalc\Calc\playGame();
+BrainCalc\Calc\calc();
 //BrainEngine\Engine\wrongAnswer($answer, $correctAnswer, $name);

@@ -5,31 +5,41 @@ namespace BrainCalc\Calc;
 use function cli\line;
 use function cli\prompt;
 
-
-
-
-function playGame()
-{
-
-    function calcWelcome()
+function calcWelcome()
 {
      $taskExpression = 'What is the result of the expression?';
      $name = \BrainEngine\Engine\welcome($taskExpression);
      return $name;
 }
 
+
+function playGame()
+{
+    $name = \BrainCalc\Calc\calcWelcome();
     for ($game = 0; $game < 3; $game++) {
+        $operatorArr = ["+", "-", "*"];
+        $operator = $operatorArr[rand(0, 2)];
         $number1 = rand(0, 10);
         $number2 = rand(0, 10);
-        $task = "$number1" . " + " . "$number2";
-        $taskAnswer = $number1 + $number2;
+        $task = "$number1" . " $operator " . "$number2";
+        match ($operator) {
+            '-' => $taskAnswer = $number1 - $number2,
+            '+' => $taskAnswer = $number1 + $number2,
+            '*' => $taskAnswer = $number1 * $number2,
+        };
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
             line('Correct!');
         } else {
             \BrainEngine\Engine\wrongAnswer($answer, $taskAnswer, $name);
-            break;
+            return;
         }
-        line("Congratulations, %s!", $name);
     }
+    line("Congratulations, %s!", $name);
+}
+
+
+function calc()
+{
+    \BrainCalc\Calc\playGame();
 }
