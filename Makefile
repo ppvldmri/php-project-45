@@ -12,5 +12,7 @@ brain-calc: #start calc game
 	./bin/brain-calc
 brain-gcd: #start gcd game
 	./bin/brain-gcd
-brain-prog: #start progression game
+brain-progression: #start progression game
 	./bin/brain-progression
+brain-prime:
+	./bin/brain-prime

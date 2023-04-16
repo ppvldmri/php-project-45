@@ -16,14 +16,13 @@ function playGame()
 {
     $name = \BrainProgression\Progression\progWelcome();
     for ($game = 0; $game < 3; $game++) {
-        $numberStart = rand(0, 10);
-        $step = rand(0, 5);
+        $numberStart = rand(1, 10);
+        $step = rand(1, 5);
         $array = [];
         for ($x = 0; $x < 10; $x++) {
              $array[] = $numberStart;
              $numberStart = $numberStart + $step;
         }
-
         $askPosition = rand(0, 9);
         $taskAnswer = $array[$askPosition];
         $array[$askPosition] = '..';
