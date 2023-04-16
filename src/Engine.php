@@ -30,7 +30,7 @@ function askTask($task)
     return $answer;
 }
 
-function rightAnswer($answer, $correctAnswer, $name)
+function rightAnswer()
 {
     line('Correct!');
 }
@@ -38,4 +38,9 @@ function wrongAnswer($answer, $taskAnswer, $name)
 {
     line("'$answer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
     line("Let's try again, %s!", $name);
+}
+
+function Congratulations($name)
+{
+    line("Congratulations, %s!", $name);
 }

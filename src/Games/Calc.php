@@ -29,13 +29,13 @@ function playGame()
         };
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
-            line('Correct!');
+            \BrainEngine\Engine\rightAnswer();
         } else {
             \BrainEngine\Engine\wrongAnswer($answer, $taskAnswer, $name);
             return;
         }
     }
-    line("Congratulations, %s!", $name);
+    \BrainEngine\Engine\Congratulations($name);
 }
 
 

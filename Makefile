@@ -8,5 +8,9 @@ lint:
 	composer exec --verbose phpcs -- --standard=PSR12 src bin
 brain-even: #start even number test
 	./bin/brain-even
-brain-calc:
+brain-calc: #start calc game
 	./bin/brain-calc
+brain-gcd: #start gcd game
+	./bin/brain-gcd
+brain-prog: #start progression game
+	./bin/brain-progression
