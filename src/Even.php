@@ -28,9 +28,9 @@ function playEven()
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line('Answer "yes" if the number is even, otherwise answer "no"');
+    line('Answer "yes" if the number is even, otherwise answer "no".');
     for ($game = 0; $game < 3; $game++) {
-        $number = rand(0, 100);
+        $number = rand(1, 100);
         line("Question: %s", $number);
         $answer = prompt('Your answer');
 
