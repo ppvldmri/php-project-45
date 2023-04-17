@@ -7,9 +7,20 @@ use function cli\prompt;
 
 function gcdWelcome()
 {
-     $taskExpression = 'Find the greatest common divisor of given numbers';
+     $taskExpression = 'Find the greatest common divisor of given numbers.';
      $name = \BrainEngine\Engine\welcome($taskExpression);
      return $name;
+}
+
+function nod($number1, $number2)
+{
+    while ($number1 != $number2) {
+        if ($number1 > $number2) {
+            $number1 =  $number1 - $number2;
+        } else {
+            $number2 = $number2 - $number1;
+        }
+    }return $number2;
 }
 
 function playGame()
@@ -19,7 +30,7 @@ function playGame()
         $number1 = rand(0, 50);
         $number2 = rand(0, 50);
         $task = "$number1 " . "$number2";
-        $taskAnswer = gmp_gcd($number1, $number2);
+        $taskAnswer = \BrainGcd\Gcd\nod($number1, $number2);
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
             line('Correct!');
