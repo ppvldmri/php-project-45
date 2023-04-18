@@ -34,7 +34,7 @@ function rightAnswer()
 {
     line('Correct!');
 }
-function wrongAnswer(string $answer, $taskAnswer, string $name)
+function wrongAnswer(mixed $answer, mixed $taskAnswer, string $name)
 {
     line("'$answer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
     line("Let's try again, %s!", $name);
