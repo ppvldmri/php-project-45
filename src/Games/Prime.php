@@ -12,16 +12,24 @@ function primeWelcome()
      return $name;
 }
 
+function isPrime($task)
+{
+    if ($task == 1) {
+        return 'no';
+    }
+    for ($i = 2; $i < $task; $i++) {
+        if ($task % $i == 0) {
+                return 'no';
+        } return 'yes';
+    }
+}
+
 function playGame()
 {
     $name = \BrainPrime\Prime\primeWelcome();
     for ($game = 0; $game < 3; $game++) {
         $task = rand(1, 100);
-        match (gmp_prob_prime($task)) {
-            0 => $taskAnswer = 'no',
-            1 => $taskAnswer = 'yes',
-            2 => $taskAnswer = 'yes'
-        };
+        $taskAnswer = \BrainPrime\Prime\isPrime($task);
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
             \BrainEngine\Engine\rightAnswer();
