@@ -39,7 +39,7 @@ function playGame()
 }
 
 
-function gcd()
+function progression()
 {
     \BrainProgression\Progression\playGame();
 }

@@ -33,7 +33,7 @@ function playGame()
         $taskAnswer = \BrainGcd\Gcd\nod($number1, $number2);
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
-            line('Correct!');
+            \BrainEngine\Engine\rightAnswer();
         } else {
             \BrainEngine\Engine\wrongAnswer($answer, $taskAnswer, $name);
             return;
