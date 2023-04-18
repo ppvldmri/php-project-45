@@ -12,13 +12,13 @@ function primeWelcome()
      return $name;
 }
 
-function isPrime($task)
+function isPrime(int $number1)
 {
-    if ($task == 1) {
+    if ($number1 == 1) {
         return 'no';
     }
-    for ($i = 2; $i < $task; $i++) {
-        if ($task % $i == 0) {
+    for ($i = 2; $i < $number1; $i++) {
+        if ($number1 % $i == 0) {
             return 'no';
         }
     }
@@ -29,7 +29,8 @@ function playGame()
 {
     $name = \BrainPrime\Prime\primeWelcome();
     for ($game = 0; $game < 3; $game++) {
-        $task = rand(1, 100);
+        $number1 = rand(1, 100);
+        $task = $number1;
         $taskAnswer = \BrainPrime\Prime\isPrime($task);
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {

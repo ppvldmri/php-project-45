@@ -23,7 +23,7 @@ function welcome(string $taskExpression)
     return $name;
 }
 
-function askTask($task)
+function askTask(string $task)
 {
     line("Question: %s", $task);
     $answer = prompt('Your answer');
