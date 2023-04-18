@@ -22,6 +22,7 @@ function playGame()
         $number1 = rand(0, 10);
         $number2 = rand(0, 10);
         $task = "$number1" . " $operator " . "$number2";
+        $taskAnswer = '';
         match ($operator) {
             '-' => $taskAnswer = $number1 - $number2,
             '+' => $taskAnswer = $number1 + $number2,
