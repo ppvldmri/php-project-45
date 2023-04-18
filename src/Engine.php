@@ -34,13 +34,13 @@ function rightAnswer()
 {
     line('Correct!');
 }
-function wrongAnswer($answer, $taskAnswer, string $name)
+function wrongAnswer(string $answer, string $taskAnswer, string $name)
 {
     line("'$answer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
     line("Let's try again, %s!", $name);
 }
 
-function Congratulations($name)
+function Congratulations(string $name)
 {
     line("Congratulations, %s!", $name);
 }

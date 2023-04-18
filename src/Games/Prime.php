@@ -30,7 +30,7 @@ function playGame()
     $name = \BrainPrime\Prime\primeWelcome();
     for ($game = 0; $game < 3; $game++) {
         $number1 = rand(1, 100);
-        $task = $number1;
+        $task = (string) $number1;
         $taskAnswer = \BrainPrime\Prime\isPrime($task);
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
