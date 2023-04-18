@@ -29,7 +29,7 @@ function playGame()
     for ($game = 0; $game < 3; $game++) {
         $number1 = rand(0, 50);
         $number2 = rand(0, 50);
-        $task = $number1 . $number2;
+        $task = "$number1" . "$number2";
         $taskAnswer = \BrainGcd\Gcd\nod($number1, $number2);
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
