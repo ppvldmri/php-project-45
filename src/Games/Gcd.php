@@ -7,12 +7,12 @@ use function cli\prompt;
 
 function gcdWelcome()
 {
-     $taskExpression = 'Find the greatest common divisor of given numbers.';
-     $name = \BrainGames\Engine\welcome($taskExpression);
+     $taskDescription = 'Find the greatest common divisor of given numbers.';
+     $name = \BrainGames\Engine\welcome($taskDescription);
      return $name;
 }
 
-function nod(int $number1, int $number2)
+function findNod(int $number1, int $number2)
 {
     while ($number1 != $number2) {
         if ($number1 > $number2) {
@@ -30,7 +30,7 @@ function playGame()
         $number1 = rand(1, 50);
         $number2 = rand(1, 50);
         $task = "$number1" . " " . "$number2";
-        $taskAnswer = \BrainGames\Games\Gcd\nod($number1, $number2);
+        $taskAnswer = \BrainGames\Games\Gcd\findNod($number1, $number2);
         $answer = \BrainGames\Engine\askTask($task);
         if ($answer == $taskAnswer) {
             \BrainGames\Engine\rightAnswer();
@@ -39,7 +39,7 @@ function playGame()
             return;
         }
     }
-    \BrainGames\Engine\Congratulations($name);
+    \BrainGames\Engine\congratulate($name);
 }
 
 

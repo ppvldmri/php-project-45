@@ -14,12 +14,12 @@ use function cli\line;
 use function cli\prompt;
 
 
-function welcome(string $taskExpression)
+function welcome(string $taskDescription)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line($taskExpression);
+    line($taskDescription);
     return $name;
 }
 
@@ -40,7 +40,7 @@ function wrongAnswer(mixed $answer, mixed $taskAnswer, string $name)
     line("Let's try again, %s!", $name);
 }
 
-function Congratulations(string $name)
+function congratulate(string $name)
 {
     line("Congratulations, %s!", $name);
 }

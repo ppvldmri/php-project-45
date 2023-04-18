@@ -7,8 +7,8 @@ use function cli\prompt;
 
 function calcWelcome()
 {
-     $taskExpression = 'What is the result of the expression?';
-     $name = \BrainGames\Engine\welcome($taskExpression);
+     $taskDescription = 'What is the result of the expression?';
+     $name = \BrainGames\Engine\welcome($taskDescription);
      return $name;
 }
 
@@ -36,7 +36,7 @@ function playGame()
             return;
         }
     }
-    \BrainGames\Engine\Congratulations($name);
+    \BrainGames\Engine\congratulate($name);
 }
 
 

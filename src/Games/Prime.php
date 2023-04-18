@@ -7,8 +7,8 @@ use function cli\prompt;
 
 function primeWelcome()
 {
-     $taskExpression = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-     $name = \BrainGames\Engine\welcome($taskExpression);
+     $taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+     $name = \BrainGames\Engine\welcome($taskDescription);
      return $name;
 }
 
@@ -40,7 +40,7 @@ function playGame()
             return;
         }
     }
-    \BrainGames\Engine\Congratulations($name);
+    \BrainGames\Engine\congratulate($name);
 }
 
 function prime()
