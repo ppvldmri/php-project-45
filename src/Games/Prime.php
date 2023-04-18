@@ -19,9 +19,10 @@ function isPrime($task)
     }
     for ($i = 2; $i < $task; $i++) {
         if ($task % $i == 0) {
-                return 'no';
-        } return 'yes';
+            return 'no';
+        }
     }
+    return 'yes';
 }
 
 function playGame()
