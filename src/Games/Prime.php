@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainPrime\Prime;
+namespace BrainGames\Games\Prime;
 
 use function cli\line;
 use function cli\prompt;
@@ -8,7 +8,7 @@ use function cli\prompt;
 function primeWelcome()
 {
      $taskExpression = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-     $name = \BrainEngine\Engine\welcome($taskExpression);
+     $name = \BrainGames\Engine\welcome($taskExpression);
      return $name;
 }
 
@@ -27,23 +27,23 @@ function isPrime(int $number1)
 
 function playGame()
 {
-    $name = \BrainPrime\Prime\primeWelcome();
+    $name = \BrainGames\Games\Prime\primeWelcome();
     for ($game = 0; $game < 3; $game++) {
         $number1 = rand(1, 100);
         $task = (string) $number1;
-        $taskAnswer = \BrainPrime\Prime\isPrime($number1);
-        $answer = \BrainEngine\Engine\askTask($task);
+        $taskAnswer = \BrainGames\Games\Prime\isPrime($number1);
+        $answer = \BrainGames\Engine\askTask($task);
         if ($answer == $taskAnswer) {
-            \BrainEngine\Engine\rightAnswer();
+            \BrainGames\Engine\rightAnswer();
         } else {
-            \BrainEngine\Engine\wrongAnswer($answer, $taskAnswer, $name);
+            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
             return;
         }
     }
-    \BrainEngine\Engine\Congratulations($name);
+    \BrainGames\Engine\Congratulations($name);
 }
 
 function prime()
 {
-    \BrainPrime\Prime\playGame();
+    \BrainGames\Games\Prime\playGame();
 }

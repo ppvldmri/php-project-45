@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainCalc\Calc;
+namespace BrainGames\Games\Calc;
 
 use function cli\line;
 use function cli\prompt;
@@ -8,14 +8,14 @@ use function cli\prompt;
 function calcWelcome()
 {
      $taskExpression = 'What is the result of the expression?';
-     $name = \BrainEngine\Engine\welcome($taskExpression);
+     $name = \BrainGames\Engine\welcome($taskExpression);
      return $name;
 }
 
 
 function playGame()
 {
-    $name = \BrainCalc\Calc\calcWelcome();
+    $name = \BrainGames\Games\Calc\calcWelcome();
     for ($game = 0; $game < 3; $game++) {
         $operatorArr = ["+", "-", "*"];
         $operator = $operatorArr[rand(0, 2)];
@@ -28,19 +28,19 @@ function playGame()
             '+' => $taskAnswer = $number1 + $number2,
             '*' => $taskAnswer = $number1 * $number2,
         };
-        $answer = \BrainEngine\Engine\askTask($task);
+        $answer = \BrainGames\Engine\askTask($task);
         if ($answer == $taskAnswer) {
-            \BrainEngine\Engine\rightAnswer();
+            \BrainGames\Engine\rightAnswer();
         } else {
-            \BrainEngine\Engine\wrongAnswer($answer, $taskAnswer, $name);
+            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
             return;
         }
     }
-    \BrainEngine\Engine\Congratulations($name);
+    \BrainGames\Engine\Congratulations($name);
 }
 
 
 function calc()
 {
-    \BrainCalc\Calc\playGame();
+    \BrainGames\Games\Calc\playGame();
 }

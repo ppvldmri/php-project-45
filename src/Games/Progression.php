@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainProgression\Progression;
+namespace BrainGames\Games\Progression;
 
 use function cli\line;
 use function cli\prompt;
@@ -8,13 +8,13 @@ use function cli\prompt;
 function progWelcome()
 {
      $taskExpression = 'What number is missing in the progression?';
-     $name = \BrainEngine\Engine\welcome($taskExpression);
+     $name = \BrainGames\Engine\welcome($taskExpression);
      return $name;
 }
 
 function playGame()
 {
-    $name = \BrainProgression\Progression\progWelcome();
+    $name = \BrainGames\Games\Progression\progWelcome();
     for ($game = 0; $game < 3; $game++) {
         $numberStart = rand(1, 10);
         $step = rand(1, 5);
@@ -27,19 +27,19 @@ function playGame()
         $taskAnswer = (string) $array[$askPosition];
         $array[$askPosition] = '..';
         $task = implode(" ", $array);
-        $answer = \BrainEngine\Engine\askTask($task);
+        $answer = \BrainGames\Engine\askTask($task);
         if ($answer == $taskAnswer) {
             line('Correct!');
         } else {
-            \BrainEngine\Engine\wrongAnswer($answer, $taskAnswer, $name);
+            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
             return;
         }
     }
-    \BrainEngine\Engine\Congratulations($name);
+    \BrainGames\Engine\Congratulations($name);
 }
 
 
 function progression()
 {
-    \BrainProgression\Progression\playGame();
+    \BrainGames\Games\Progression\playGame();
 }

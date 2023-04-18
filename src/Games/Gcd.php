@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGcd\Gcd;
+namespace BrainGames\Games\Gcd;
 
 use function cli\line;
 use function cli\prompt;
@@ -8,7 +8,7 @@ use function cli\prompt;
 function gcdWelcome()
 {
      $taskExpression = 'Find the greatest common divisor of given numbers.';
-     $name = \BrainEngine\Engine\welcome($taskExpression);
+     $name = \BrainGames\Engine\welcome($taskExpression);
      return $name;
 }
 
@@ -25,25 +25,25 @@ function nod(int $number1, int $number2)
 
 function playGame()
 {
-    $name = \BrainGcd\Gcd\gcdWelcome();
+    $name = \BrainGames\Games\Gcd\gcdWelcome();
     for ($game = 0; $game < 3; $game++) {
         $number1 = rand(1, 50);
         $number2 = rand(1, 50);
         $task = "$number1" . " " . "$number2";
-        $taskAnswer = \BrainGcd\Gcd\nod($number1, $number2);
-        $answer = \BrainEngine\Engine\askTask($task);
+        $taskAnswer = \BrainGames\Games\Gcd\nod($number1, $number2);
+        $answer = \BrainGames\Engine\askTask($task);
         if ($answer == $taskAnswer) {
-            \BrainEngine\Engine\rightAnswer();
+            \BrainGames\Engine\rightAnswer();
         } else {
-            \BrainEngine\Engine\wrongAnswer($answer, $taskAnswer, $name);
+            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
             return;
         }
     }
-    \BrainEngine\Engine\Congratulations($name);
+    \BrainGames\Engine\Congratulations($name);
 }
 
 
 function gcd()
 {
-    \BrainGcd\Gcd\playGame();
+    \BrainGames\Games\Gcd\playGame();
 }

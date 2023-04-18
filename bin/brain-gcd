@@ -10,4 +10,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-\BrainGcd\Gcd\gcd();
+\BrainGames\Games\Gcd\gcd();
