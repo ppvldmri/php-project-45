@@ -12,7 +12,7 @@ function gcdWelcome()
      return $name;
 }
 
-function nod(int $number1, int $number2)
+function nod($number1, $number2)
 {
     while ($number1 != $number2) {
         if ($number1 > $number2) {
