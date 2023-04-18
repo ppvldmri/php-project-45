@@ -14,7 +14,7 @@ use function cli\line;
 use function cli\prompt;
 
 
-function welcome($taskExpression)
+function welcome(string $taskExpression)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -34,7 +34,7 @@ function rightAnswer()
 {
     line('Correct!');
 }
-function wrongAnswer($answer, $taskAnswer, $name)
+function wrongAnswer($answer, $taskAnswer, string $name)
 {
     line("'$answer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
     line("Let's try again, %s!", $name);
