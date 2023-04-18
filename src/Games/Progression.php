@@ -24,7 +24,7 @@ function playGame()
              $numberStart = $numberStart + $step;
         }
         $askPosition = rand(0, 9);
-        $taskAnswer = $array[$askPosition];
+        $taskAnswer = (string) $array[$askPosition];
         $array[$askPosition] = '..';
         $task = implode(" ", $array);
         $answer = \BrainEngine\Engine\askTask($task);

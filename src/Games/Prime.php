@@ -31,7 +31,7 @@ function playGame()
     for ($game = 0; $game < 3; $game++) {
         $number1 = rand(1, 100);
         $task = (string) $number1;
-        $taskAnswer = \BrainPrime\Prime\isPrime($task);
+        $taskAnswer = \BrainPrime\Prime\isPrime($number1);
         $answer = \BrainEngine\Engine\askTask($task);
         if ($answer == $taskAnswer) {
             \BrainEngine\Engine\rightAnswer();
