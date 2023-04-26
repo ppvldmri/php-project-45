@@ -14,9 +14,10 @@ $ cd php-project-45
 
 $ make install
 ```
-## Run Games
-
-# brain-even game
+Brain Even Game
+```
+make brain-even
+```
 [![asciicast](https://asciinema.org/a/9Bv5dqkB6Ka019ExubNIk3si5.svg)](https://asciinema.org/a/9Bv5dqkB6Ka019ExubNIk3si5)
 # brain-calc game
 [![asciicast](https://asciinema.org/a/LyuBLAaxAheZS9103D8sl7fgn.svg)](https://asciinema.org/a/LyuBLAaxAheZS9103D8sl7fgn)
