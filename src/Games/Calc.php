@@ -12,7 +12,6 @@ function calcWelcome()
      return $name;
 }
 
-
 function playGame()
 {
     $name = \BrainGames\Games\Calc\calcWelcome();
@@ -38,7 +37,6 @@ function playGame()
     }
     \BrainGames\Engine\congratulate($name);
 }
-
 
 function calc()
 {

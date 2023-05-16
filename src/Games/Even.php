@@ -1,18 +1,9 @@
 <?php
 
-namespace BrainGames\Even;
-
-$autoloadPath1 = __DIR__ . '/../../../autoload.php';
-$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
-if (file_exists($autoloadPath1)) {
-    require_once $autoloadPath1;
-} else {
-    require_once $autoloadPath2;
-}
+namespace BrainGames\Games\Even;
 
 use function cli\line;
 use function cli\prompt;
-
 
 function isEven(int $number)
 {
@@ -23,12 +14,16 @@ function isEven(int $number)
     }
 }
 
+function evenWelcome()
+{
+    $taskDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $name = \BrainGames\Engine\welcome($taskDescription);
+    return $name;
+}
+
 function playEven()
 {
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    $name = \BrainGames\Games\Even\evenWelcome();
     for ($game = 0; $game < 3; $game++) {
         $number = rand(1, 100);
         line("Question: %s", $number);
