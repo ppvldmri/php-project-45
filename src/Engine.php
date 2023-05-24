@@ -32,7 +32,7 @@ function wrongAnswer(mixed $userAnswer, mixed $taskAnswer, string $name)
     exit;
 }
 
-function checkAnswer($taskAnswer, $name, $task)
+function checkAnswer(mixed $taskAnswer, string $name, string $task)
 {
     $userAnswer = \BrainGames\Engine\askTask($task);
     if ($userAnswer == $taskAnswer) {
