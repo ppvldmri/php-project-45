@@ -21,19 +21,19 @@ function evenWelcome()
     return $name;
 }
 
-function playEven()
+function playGame()
 {
     $name = \BrainGames\Games\Even\evenWelcome();
     for ($game = 0; $game < 3; $game++) {
         $number = rand(1, 100);
         line("Question: %s", $number);
-        $answer = prompt('Your answer');
+        $userAnswer = prompt('Your answer');
 
-        if ($answer == isEven($number)) {
+        if ($userAnswer == isEven($number)) {
             line('Correct!');
         } else {
             $correctAnswer = isEven($number);
-            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
+            line("'$userAnswer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
             line("Let's try again, %s!", $name);
             break;
         }

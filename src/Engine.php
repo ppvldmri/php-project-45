@@ -17,18 +17,29 @@ function welcome(string $taskDescription)
 function askTask(string $task)
 {
     line("Question: %s", $task);
-    $answer = prompt('Your answer');
-    return $answer;
+    $userAnswer = prompt('Your answer');
+    return $userAnswer;
 }
 
 function rightAnswer()
 {
     line('Correct!');
 }
-function wrongAnswer(mixed $answer, mixed $taskAnswer, string $name)
+function wrongAnswer(mixed $userAnswer, mixed $taskAnswer, string $name)
 {
-    line("'$answer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
+    line("'$userAnswer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
     line("Let's try again, %s!", $name);
+    exit;
+}
+
+function checkAnswer($taskAnswer, $name, $task)
+{
+    $userAnswer = \BrainGames\Engine\askTask($task);
+    if ($userAnswer == $taskAnswer) {
+        \BrainGames\Engine\rightAnswer();
+    } else {
+        \BrainGames\Engine\wrongAnswer($userAnswer, $taskAnswer, $name);
+    }
 }
 
 function congratulate(string $name)

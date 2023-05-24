@@ -27,19 +27,7 @@ function playGame()
         $taskAnswer = (string) $progressionArray[$taskPosition];
         $progressionArray[$taskPosition] = '..';
         $task = implode(" ", $progressionArray);
-        $answer = \BrainGames\Engine\askTask($task);
-        if ($answer == $taskAnswer) {
-            line('Correct!');
-        } else {
-            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
-            return;
-        }
+        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
     }
     \BrainGames\Engine\congratulate($name);
-}
-
-
-function progression()
-{
-    \BrainGames\Games\Progression\playGame();
 }

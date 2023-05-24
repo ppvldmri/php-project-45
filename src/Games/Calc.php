@@ -27,18 +27,7 @@ function playGame()
             '+' => $taskAnswer = $number1 + $number2,
             '*' => $taskAnswer = $number1 * $number2,
         };
-        $answer = \BrainGames\Engine\askTask($task);
-        if ($answer == $taskAnswer) {
-            \BrainGames\Engine\rightAnswer();
-        } else {
-            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
-            return;
-        }
+        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
     }
     \BrainGames\Engine\congratulate($name);
-}
-
-function calc()
-{
-    \BrainGames\Games\Calc\playGame();
 }

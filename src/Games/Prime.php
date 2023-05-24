@@ -32,18 +32,7 @@ function playGame()
         $number1 = rand(1, 100);
         $task = (string) $number1;
         $taskAnswer = \BrainGames\Games\Prime\isPrime($number1);
-        $answer = \BrainGames\Engine\askTask($task);
-        if ($answer == $taskAnswer) {
-            \BrainGames\Engine\rightAnswer();
-        } else {
-            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
-            return;
-        }
+        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
     }
     \BrainGames\Engine\congratulate($name);
-}
-
-function prime()
-{
-    \BrainGames\Games\Prime\playGame();
 }

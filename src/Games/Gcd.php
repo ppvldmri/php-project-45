@@ -31,19 +31,7 @@ function playGame()
         $number2 = rand(1, 50);
         $task = "$number1" . " " . "$number2";
         $taskAnswer = \BrainGames\Games\Gcd\findNod($number1, $number2);
-        $answer = \BrainGames\Engine\askTask($task);
-        if ($answer == $taskAnswer) {
-            \BrainGames\Engine\rightAnswer();
-        } else {
-            \BrainGames\Engine\wrongAnswer($answer, $taskAnswer, $name);
-            return;
-        }
+        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
     }
     \BrainGames\Engine\congratulate($name);
-}
-
-
-function gcd()
-{
-    \BrainGames\Games\Gcd\playGame();
 }
