@@ -2,20 +2,14 @@
 
 namespace BrainGames\Games\Calc;
 
-use function cli\line;
-use function cli\prompt;
+require_once('src/Engine.php');
 
-function calcWelcome()
-{
-     $taskDescription = 'What is the result of the expression?';
-     $name = \BrainGames\Engine\welcome($taskDescription);
-     return $name;
-}
+use function BrainGames\Engine\playGameFromEngine;
 
 function playGame()
 {
-    $name = \BrainGames\Games\Calc\calcWelcome();
-    for ($game = 0; $game < 3; $game++) {
+    $taskDescription = 'What is the result of the expression?';
+    $gameData = function () {
         $operatorArr = ["+", "-", "*"];
         $operator = $operatorArr[rand(0, 2)];
         $number1 = rand(0, 10);
@@ -27,7 +21,8 @@ function playGame()
             '+' => $taskAnswer = $number1 + $number2,
             '*' => $taskAnswer = $number1 * $number2,
         };
-        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
-    }
-    \BrainGames\Engine\congratulate($name);
+        $gameData = [$task,$taskAnswer];
+        return $gameData;
+    };
+        playGameFromEngine($taskDescription, $gameData);
 }

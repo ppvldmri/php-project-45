@@ -2,15 +2,9 @@
 
 namespace BrainGames\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
+require_once('src/Engine.php');
 
-function primeWelcome()
-{
-     $taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-     $name = \BrainGames\Engine\welcome($taskDescription);
-     return $name;
-}
+use function BrainGames\Engine\playGameFromEngine;
 
 function isPrime(int $number1)
 {
@@ -27,12 +21,13 @@ function isPrime(int $number1)
 
 function playGame()
 {
-    $name = \BrainGames\Games\Prime\primeWelcome();
-    for ($game = 0; $game < 3; $game++) {
+    $taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $gameData = function () {
         $number1 = rand(1, 100);
         $task = (string) $number1;
         $taskAnswer = \BrainGames\Games\Prime\isPrime($number1);
-        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
-    }
-    \BrainGames\Engine\congratulate($name);
+        $gameData = [$task,$taskAnswer];
+        return $gameData;
+    };
+    playGameFromEngine($taskDescription, $gameData);
 }

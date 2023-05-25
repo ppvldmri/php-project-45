@@ -5,6 +5,8 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
+$GLOBALS['round'] = 3;
+
 function welcome(string $taskDescription)
 {
     line('Welcome to the Brain Games!');
@@ -45,4 +47,19 @@ function checkAnswer(mixed $taskAnswer, string $name, string $task)
 function congratulate(string $name)
 {
     line("Congratulations, %s!", $name);
+}
+
+function playGameFromEngine(string $taskDescription, mixed $gameData)
+{
+    $name = welcome($taskDescription);
+    for ($i = 1; $i <= $GLOBALS['round']; $i++) {
+        [$task, $taskAnswer] = $gameData();
+        $userAnswer = \BrainGames\Engine\askTask($task);
+        if ($userAnswer == $taskAnswer) {
+            \BrainGames\Engine\rightAnswer();
+        } else {
+            \BrainGames\Engine\wrongAnswer($userAnswer, $taskAnswer, $name);
+        }
+    }
+    congratulate($name);
 }

@@ -2,8 +2,9 @@
 
 namespace BrainGames\Games\Even;
 
-use function cli\line;
-use function cli\prompt;
+require_once('src/Engine.php');
+
+use function BrainGames\Engine\playGameFromEngine;
 
 function isEven(int $number)
 {
@@ -14,29 +15,15 @@ function isEven(int $number)
     }
 }
 
-function evenWelcome()
-{
-    $taskDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
-    $name = \BrainGames\Engine\welcome($taskDescription);
-    return $name;
-}
-
 function playGame()
 {
-    $name = \BrainGames\Games\Even\evenWelcome();
-    for ($game = 0; $game < 3; $game++) {
+    $taskDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $gameData = function () {
         $number = rand(1, 100);
-        line("Question: %s", $number);
-        $userAnswer = prompt('Your answer');
-
-        if ($userAnswer == isEven($number)) {
-            line('Correct!');
-        } else {
-            $correctAnswer = isEven($number);
-            line("'$userAnswer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
-            line("Let's try again, %s!", $name);
-            break;
-        }
-        line("Congratulations, %s!", $name);
-    }
+        $task = $number;
+        $taskAnswer = isEven($number);
+        $gameData = [$task,$taskAnswer];
+        return $gameData;
+    };
+    playGameFromEngine($taskDescription, $gameData);
 }

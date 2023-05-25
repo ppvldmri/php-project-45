@@ -2,15 +2,9 @@
 
 namespace BrainGames\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
+require_once('src/Engine.php');
 
-function gcdWelcome()
-{
-     $taskDescription = 'Find the greatest common divisor of given numbers.';
-     $name = \BrainGames\Engine\welcome($taskDescription);
-     return $name;
-}
+use function BrainGames\Engine\playGameFromEngine;
 
 function findNod(int $number1, int $number2)
 {
@@ -25,13 +19,14 @@ function findNod(int $number1, int $number2)
 
 function playGame()
 {
-    $name = \BrainGames\Games\Gcd\gcdWelcome();
-    for ($game = 0; $game < 3; $game++) {
+    $taskDescription = 'Find the greatest common divisor of given numbers.';
+    $gameData = function () {
         $number1 = rand(1, 50);
         $number2 = rand(1, 50);
         $task = "$number1" . " " . "$number2";
         $taskAnswer = \BrainGames\Games\Gcd\findNod($number1, $number2);
-        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
-    }
-    \BrainGames\Engine\congratulate($name);
+        $gameData = [$task,$taskAnswer];
+        return $gameData;
+    };
+    playGameFromEngine($taskDescription, $gameData);
 }

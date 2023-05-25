@@ -2,20 +2,14 @@
 
 namespace BrainGames\Games\Progression;
 
-use function cli\line;
-use function cli\prompt;
+require_once('src/Engine.php');
 
-function progressionWelcome()
-{
-     $taskDescription = 'What number is missing in the progression?';
-     $name = \BrainGames\Engine\welcome($taskDescription);
-     return $name;
-}
+use function BrainGames\Engine\playGameFromEngine;
 
 function playGame()
 {
-    $name = \BrainGames\Games\Progression\progressionWelcome();
-    for ($game = 0; $game < 3; $game++) {
+    $taskDescription = 'What number is missing in the progression?';
+    $gameData = function () {
         $numberStart = rand(1, 10);
         $step = rand(1, 5);
         $progressionArray = [];
@@ -27,7 +21,8 @@ function playGame()
         $taskAnswer = (string) $progressionArray[$taskPosition];
         $progressionArray[$taskPosition] = '..';
         $task = implode(" ", $progressionArray);
-        \BrainGames\Engine\checkAnswer($taskAnswer, $name, $task);
-    }
-    \BrainGames\Engine\congratulate($name);
+        $gameData = [$task,$taskAnswer];
+        return $gameData;
+    };
+    playGameFromEngine($taskDescription, $gameData);
 }
