@@ -2,8 +2,6 @@
 
 namespace BrainGames\Games\Prime;
 
-require_once('src/Engine.php');
-
 use function BrainGames\Engine\playGameFromEngine;
 
 function isPrime(int $number1)

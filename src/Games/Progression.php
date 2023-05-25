@@ -2,8 +2,6 @@
 
 namespace BrainGames\Games\Progression;
 
-require_once('src/Engine.php');
-
 use function BrainGames\Engine\playGameFromEngine;
 
 function playGame()

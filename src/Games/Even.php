@@ -2,8 +2,6 @@
 
 namespace BrainGames\Games\Even;
 
-require_once('src/Engine.php');
-
 use function BrainGames\Engine\playGameFromEngine;
 
 function isEven(int $number)

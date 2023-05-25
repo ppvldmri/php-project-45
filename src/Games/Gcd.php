@@ -2,8 +2,6 @@
 
 namespace BrainGames\Games\Gcd;
 
-require_once('src/Engine.php');
-
 use function BrainGames\Engine\playGameFromEngine;
 
 function findNod(int $number1, int $number2)
