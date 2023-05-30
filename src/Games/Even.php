@@ -9,9 +9,9 @@ const TASK_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "
 function isEven(int $number)
 {
     if ($number % 2 == 0) {
-        return "yes";
-    } else {
-        return "no";
+        return 'yes';  // зачем здесь делать true и false, если в 23 строке с помощью функции получаем $taskAnswer
+    } else {           // который потом сравнивается с ответом пользователя? тогда нужно же будет усложнять код,
+        return 'no';   // для указания, что true - это yes
     }
 }
 

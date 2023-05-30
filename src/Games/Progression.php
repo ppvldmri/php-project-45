@@ -5,6 +5,7 @@ namespace BrainGames\Games\Progression;
 use function BrainGames\Engine\playGameFromEngine;
 
 const TASK_DESCRIPTION = 'What number is missing in the progression?';
+const PROGRESSION_LENGTH = 10;
 
 function playGame()
 {
@@ -12,7 +13,7 @@ function playGame()
         $numberStart = rand(1, 10);
         $step = rand(1, 5);
         $progressionArray = [];
-        for ($x = 0; $x < 10; $x++) {
+        for ($x = 0; $x < PROGRESSION_LENGTH; $x++) {
              $progressionArray[] = $numberStart;
              $numberStart = $numberStart + $step;
         }
