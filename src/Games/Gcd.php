@@ -4,6 +4,8 @@ namespace BrainGames\Games\Gcd;
 
 use function BrainGames\Engine\playGameFromEngine;
 
+const TASK_DESCRIPTION = 'Find the greatest common divisor of given numbers.';
+
 function findNod(int $number1, int $number2)
 {
     while ($number1 != $number2) {
@@ -17,7 +19,6 @@ function findNod(int $number1, int $number2)
 
 function playGame()
 {
-    $taskDescription = 'Find the greatest common divisor of given numbers.';
     $gameData = function () {
         $number1 = rand(1, 50);
         $number2 = rand(1, 50);
@@ -26,5 +27,5 @@ function playGame()
         $gameData = [$task,$taskAnswer];
         return $gameData;
     };
-    playGameFromEngine($taskDescription, $gameData);
+    playGameFromEngine(TASK_DESCRIPTION, $gameData);
 }

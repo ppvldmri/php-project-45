@@ -4,9 +4,10 @@ namespace BrainGames\Games\Calc;
 
 use function BrainGames\Engine\playGameFromEngine;
 
+const TASK_DESCRIPTION = 'What is the result of the expression?';
+
 function playGame()
 {
-    $taskDescription = 'What is the result of the expression?';
     $gameData = function () {
         $operatorArr = ["+", "-", "*"];
         $operator = $operatorArr[rand(0, 2)];
@@ -22,5 +23,5 @@ function playGame()
         $gameData = [$task,$taskAnswer];
         return $gameData;
     };
-        playGameFromEngine($taskDescription, $gameData);
+        playGameFromEngine(TASK_DESCRIPTION, $gameData);
 }

@@ -5,7 +5,7 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-$GLOBALS['round'] = 3;
+const ROUNDS = 3;
 
 function welcome(string $taskDescription)
 {
@@ -16,50 +16,22 @@ function welcome(string $taskDescription)
     return $name;
 }
 
-function askTask(string $task)
-{
-    line("Question: %s", $task);
-    $userAnswer = prompt('Your answer');
-    return $userAnswer;
-}
-
-function rightAnswer()
-{
-    line('Correct!');
-}
-function wrongAnswer(mixed $userAnswer, mixed $taskAnswer, string $name)
-{
-    line("'$userAnswer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
-    line("Let's try again, %s!", $name);
-    exit;
-}
-
-function checkAnswer(mixed $taskAnswer, string $name, string $task)
-{
-    $userAnswer = \BrainGames\Engine\askTask($task);
-    if ($userAnswer == $taskAnswer) {
-        \BrainGames\Engine\rightAnswer();
-    } else {
-        \BrainGames\Engine\wrongAnswer($userAnswer, $taskAnswer, $name);
-    }
-}
-
-function congratulate(string $name)
-{
-    line("Congratulations, %s!", $name);
-}
-
-function playGameFromEngine(string $taskDescription, mixed $gameData)
+function playGameFromEngine(string $taskDescription, callable $gameData)
 {
     $name = welcome($taskDescription);
-    for ($i = 1; $i <= $GLOBALS['round']; $i++) {
+    for ($i = 1; $i <= ROUNDS; $i++) {
         [$task, $taskAnswer] = $gameData();
-        $userAnswer = \BrainGames\Engine\askTask($task);
+        line("Question: %s", $task);
+        $userAnswer = prompt('Your answer');
         if ($userAnswer == $taskAnswer) {
-            \BrainGames\Engine\rightAnswer();
+            line('Correct!');
         } else {
-            \BrainGames\Engine\wrongAnswer($userAnswer, $taskAnswer, $name);
+            line("'$userAnswer' is wrong answer ;(. Correct answer was '$taskAnswer'.");
+            line("Let's try again, %s!", $name);
+            return;
+            // здесь использовался exit, потому что выход был из функции wrongAnswer.
+            // соотвественно return выкидывал в текующую функцию и она продолжала работу
         }
     }
-    congratulate($name);
+    line("Congratulations, %s!", $name);
 }

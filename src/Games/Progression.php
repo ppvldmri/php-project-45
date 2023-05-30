@@ -4,9 +4,10 @@ namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\playGameFromEngine;
 
+const TASK_DESCRIPTION = 'What number is missing in the progression?';
+
 function playGame()
 {
-    $taskDescription = 'What number is missing in the progression?';
     $gameData = function () {
         $numberStart = rand(1, 10);
         $step = rand(1, 5);
@@ -22,5 +23,5 @@ function playGame()
         $gameData = [$task,$taskAnswer];
         return $gameData;
     };
-    playGameFromEngine($taskDescription, $gameData);
+    playGameFromEngine(TASK_DESCRIPTION, $gameData);
 }
