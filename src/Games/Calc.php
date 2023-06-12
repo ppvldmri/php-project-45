@@ -8,7 +8,8 @@ const TASK_DESCRIPTION = 'What is the result of the expression?';
 
 function playGame()
 {
-    $gameData = function () {  // я не знаю, как сделать иначе. если дать фукнции имя, то у меня пропадает цикл и выражение дается одно и тоже
+    $gameData = function () {
+        // я не знаю, как сделать иначе. если дать фукнции имя, то у меня пропадает цикл и выражение дается одно и тоже
         $operatorArr = ["+", "-", "*"];
         $operator = $operatorArr[rand(0, 2)];
         $number1 = rand(0, 10);
